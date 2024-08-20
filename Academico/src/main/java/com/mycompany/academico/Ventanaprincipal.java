@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package com.mycompany.academico;
-
+import java.util.*;
 import javax.swing.JOptionPane;
 
 /**
@@ -45,6 +45,11 @@ public class Ventanaprincipal extends javax.swing.JFrame {
         });
 
         search.setText("Consultar");
+        search.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -77,35 +82,50 @@ public class Ventanaprincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void createActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createActionPerformed
-        
-        
-        
-            int edad = Integer.parseInt( JOptionPane.showInputDialog(rootPane, "Diga su edad:"));
-            if(edad<18){
-                JOptionPane.showMessageDialog(rootPane,"Usted es MENOR de edad");
-                if(im[0]<5){
-                    arraymenores[im[0]]=edad;
-                    im[0]=im[0]+1;
-                        
+            int i = 0;
+            while(i<15){
+                int edad = Integer.parseInt( JOptionPane.showInputDialog(rootPane, "Diga su edad:"));
+                if(edad<18){
+                    JOptionPane.showMessageDialog(rootPane,"Usted es MENOR de edad");
+                    if(im[0]<5){
+                        arraymenores[im[0]]=edad;
+                        im[0]=im[0]+1;
+
+                    }else{
+                        JOptionPane.showMessageDialog(rootPane, "Menores Completados");
+                        i--;
+                    }
+                }else if(edad>=18 && edad < 60){
+                    JOptionPane.showMessageDialog(rootPane, "Usted es MAYOR de edad");
+                    if(im[1]<5){
+                        arraymayores[im[1]]=edad;
+                        im[1]+=1;
+                    }else{
+                        JOptionPane.showMessageDialog(rootPane, "Mayores Completados");
+                        i--;
+                    }
+                }else{
+                    JOptionPane.showMessageDialog(rootPane, "Usted es un ADULTO MAYOR");
+                    if(im[2]<5){
+                        arrayadultos[im[2]]=edad;
+                        im[2]+=1;
+                    }else{
+                        JOptionPane.showMessageDialog(rootPane, "Adultos Mayores Completados");
+                        i--;
+                    }
+                    
                 }
-            }else if(edad>=18 && edad < 60){
-                JOptionPane.showMessageDialog(rootPane, "Usted es MAYOR de edad");
-                if(im[1]<5){
-                    arraymayores[im[1]]=edad;
-                    im[1]+=1;
-                }
-            }else{
-                JOptionPane.showMessageDialog(rootPane, "Usted es un ADULTO MAYOR");
-                if(im[1]<5){
-                    arrayadultos[im[2]]=edad;
-                    im[2]+=1;
-                }
-                
+                i++;
+        
             }
         
-        
-        
+       
     }//GEN-LAST:event_createActionPerformed
+
+    private void searchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchActionPerformed
+        
+        JOptionPane.showMessageDialog(rootPane, "Menores: "+ Arrays.toString(arraymenores)+"\n"+"Mayores:"+Arrays.toString(arraymayores)+"\n"+"Adultos Mayores: "+Arrays.toString(arrayadultos));
+    }//GEN-LAST:event_searchActionPerformed
 
     /**
      * @param args the command line arguments
