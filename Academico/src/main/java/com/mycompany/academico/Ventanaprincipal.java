@@ -12,10 +12,16 @@ import javax.swing.JOptionPane;
  */
 public class Ventanaprincipal extends javax.swing.JFrame {
 
-    int arraymenores [] = new int[5];
-    int arraymayores [] = new int[5];
-    int arrayadultos [] = new int[5];
-    int[] im= new int[3];
+   
+    
+    ArrayList<Integer> arraymenores = new ArrayList<>();
+    ArrayList<Integer> arraymayores = new ArrayList<>();
+    ArrayList<Integer> arrayadultos = new ArrayList<>();
+    
+    int sizeMenores;
+    int sizeMayores;
+    int sizeAdultos;
+    
     public Ventanaprincipal() {
         initComponents();
     }
@@ -32,12 +38,14 @@ public class Ventanaprincipal extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         create = new javax.swing.JButton();
         search = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setText("SISTEMA ACADEMICO");
 
         create.setText("Crear");
+        create.setEnabled(false);
         create.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 createActionPerformed(evt);
@@ -45,9 +53,17 @@ public class Ventanaprincipal extends javax.swing.JFrame {
         });
 
         search.setText("Consultar");
+        search.setEnabled(false);
         search.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 searchActionPerformed(evt);
+            }
+        });
+
+        jButton1.setText("Tamaños");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
             }
         });
 
@@ -64,7 +80,9 @@ public class Ventanaprincipal extends javax.swing.JFrame {
                 .addComponent(create)
                 .addGap(54, 54, 54)
                 .addComponent(search)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addGap(33, 33, 33))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -74,7 +92,8 @@ public class Ventanaprincipal extends javax.swing.JFrame {
                 .addGap(36, 36, 36)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(create)
-                    .addComponent(search))
+                    .addComponent(search)
+                    .addComponent(jButton1))
                 .addContainerGap(210, Short.MAX_VALUE))
         );
 
@@ -82,14 +101,19 @@ public class Ventanaprincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void createActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createActionPerformed
+            
+            search.setEnabled(true);
             int i = 0;
-            while(i<15){
+            int i2 = 0;
+            int i3 = 0;
+            int i4 = 0;
+            while(i<(sizeMenores+sizeMayores+sizeAdultos)){
                 int edad = Integer.parseInt( JOptionPane.showInputDialog(rootPane, "Diga su edad:"));
                 if(edad<18){
                     JOptionPane.showMessageDialog(rootPane,"Usted es MENOR de edad");
-                    if(im[0]<5){
-                        arraymenores[im[0]]=edad;
-                        im[0]=im[0]+1;
+                    if(i2<sizeMenores){
+                        arraymenores.add(edad);
+                        i2++;
 
                     }else{
                         JOptionPane.showMessageDialog(rootPane, "Menores Completados");
@@ -97,18 +121,18 @@ public class Ventanaprincipal extends javax.swing.JFrame {
                     }
                 }else if(edad>=18 && edad < 60){
                     JOptionPane.showMessageDialog(rootPane, "Usted es MAYOR de edad");
-                    if(im[1]<5){
-                        arraymayores[im[1]]=edad;
-                        im[1]+=1;
+                    if(i3<sizeMayores){
+                        arraymayores.add(edad);
+                        i3++;
                     }else{
                         JOptionPane.showMessageDialog(rootPane, "Mayores Completados");
                         i--;
                     }
                 }else{
                     JOptionPane.showMessageDialog(rootPane, "Usted es un ADULTO MAYOR");
-                    if(im[2]<5){
-                        arrayadultos[im[2]]=edad;
-                        im[2]+=1;
+                    if(i4<sizeAdultos){
+                        arrayadultos.add(edad);
+                        i4++;
                     }else{
                         JOptionPane.showMessageDialog(rootPane, "Adultos Mayores Completados");
                         i--;
@@ -124,8 +148,16 @@ public class Ventanaprincipal extends javax.swing.JFrame {
 
     private void searchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchActionPerformed
         
-        JOptionPane.showMessageDialog(rootPane, "Menores: "+ Arrays.toString(arraymenores)+"\n"+"Mayores:"+Arrays.toString(arraymayores)+"\n"+"Adultos Mayores: "+Arrays.toString(arrayadultos));
+        JOptionPane.showMessageDialog(rootPane, "Menores: "+arraymenores.toString()+"\n"+"Mayores:"+arraymayores.toString()+"\n"+"Adultos Mayores: "+arrayadultos.toString());
     }//GEN-LAST:event_searchActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        sizeMenores =  Integer.parseInt(JOptionPane.showInputDialog(rootPane, "Ingrese cuantas personas quiere recibir de menores de edad"));
+        sizeMayores =  Integer.parseInt(JOptionPane.showInputDialog(rootPane, "Ingrese cuantas personas quiere recibir de mayores de edad"));
+        sizeAdultos =  Integer.parseInt(JOptionPane.showInputDialog(rootPane, "Ingrese cuantas personas quiere recibir de adultos mayores"));
+        
+        create.setEnabled(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -164,6 +196,7 @@ public class Ventanaprincipal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton create;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JButton search;
     // End of variables declaration//GEN-END:variables
