@@ -101,47 +101,64 @@ public class Ventanaprincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void createActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createActionPerformed
+            int edad = 0;
             
-            search.setEnabled(true);
             int i = 0;
             int i2 = 0;
             int i3 = 0;
             int i4 = 0;
             while(i<(sizeMenores+sizeMayores+sizeAdultos)){
-                int edad = Integer.parseInt( JOptionPane.showInputDialog(rootPane, "Diga su edad:"));
-                if(edad<18){
-                    JOptionPane.showMessageDialog(rootPane,"Usted es MENOR de edad");
-                    if(i2<sizeMenores){
-                        arraymenores.add(edad);
-                        i2++;
-
+                String texto = JOptionPane.showInputDialog(rootPane, "Diga su edad");
+                for (int a = 0; a < texto.length(); a++) {
+                    if (!Character.isDigit(texto.charAt(a))) {
+                        edad = -1;
+                        break;
                     }else{
-                        JOptionPane.showMessageDialog(rootPane, "Menores Completados");
-                        i--;
+                        edad = Integer.parseInt(texto);
+                        
                     }
-                }else if(edad>=18 && edad < 60){
-                    JOptionPane.showMessageDialog(rootPane, "Usted es MAYOR de edad");
-                    if(i3<sizeMayores){
-                        arraymayores.add(edad);
-                        i3++;
+                }
+                if(edad != -1){
+                    if(edad>-1 && edad<18){
+                        JOptionPane.showMessageDialog(rootPane,"Usted es MENOR de edad");
+                        if(i2<sizeMenores){
+                            arraymenores.add(edad);
+                            i2++;
+
+                        }else{
+                            JOptionPane.showMessageDialog(rootPane, "Menores Completados");
+                            i--;
+                        }
+                    }else if(edad>=18 && edad < 60){
+                        JOptionPane.showMessageDialog(rootPane, "Usted es MAYOR de edad");
+                        if(i3<sizeMayores){
+                            arraymayores.add(edad);
+                            i3++;
+                        }else{
+                            JOptionPane.showMessageDialog(rootPane, "Mayores Completados");
+                            i--;
+                        }
                     }else{
-                        JOptionPane.showMessageDialog(rootPane, "Mayores Completados");
-                        i--;
+                        JOptionPane.showMessageDialog(rootPane, "Usted es un ADULTO MAYOR");
+                        if(i4<sizeAdultos){
+                            arrayadultos.add(edad);
+                            i4++;
+                        }else{
+                            JOptionPane.showMessageDialog(rootPane, "Adultos Mayores Completados");
+                            i--;
+                        }
+
                     }
                 }else{
-                    JOptionPane.showMessageDialog(rootPane, "Usted es un ADULTO MAYOR");
-                    if(i4<sizeAdultos){
-                        arrayadultos.add(edad);
-                        i4++;
-                    }else{
-                        JOptionPane.showMessageDialog(rootPane, "Adultos Mayores Completados");
-                        i--;
-                    }
-                    
+                    JOptionPane.showMessageDialog(rootPane, "ERROR: Números negativos o letras ingresadas");
+                    i--;
                 }
+                
+                
                 i++;
         
             }
+            search.setEnabled(true);
         
        
     }//GEN-LAST:event_createActionPerformed
