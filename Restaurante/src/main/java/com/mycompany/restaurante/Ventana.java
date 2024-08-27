@@ -124,6 +124,7 @@ public class Ventana extends javax.swing.JFrame {
 
     private void informationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_informationActionPerformed
         objmenu.mostrarDatos();
+        objmenu.cantidadPlatos();
     }//GEN-LAST:event_informationActionPerformed
 
     /**
