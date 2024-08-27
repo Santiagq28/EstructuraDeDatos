@@ -23,7 +23,19 @@ public class Menu {
     int cant_dias[];
     
     public void crearMenu(int cantidad){
+        
+        PlatosClass platos2[] = new PlatosClass[cantidad];
+        
         platos = new String[cantidad];
+        int x = 0;
+        while(x<cantidad){
+            String name = JOptionPane.showInputDialog("Ingrese el nombre del plato "+(x+1));
+            int price = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el precio del plato: "+(x+1)));
+            platos2[x] = new PlatosClass(price,name);
+            
+            JOptionPane.showMessageDialog(null, platos2[x].getNombre());
+            x++;
+        }
         int i = 0;
         while(i<cantidad){
             platos[i]=JOptionPane.showInputDialog("Diga el nombre del plato "+(i+1));

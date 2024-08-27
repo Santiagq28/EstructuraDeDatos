@@ -34,7 +34,9 @@ public class Ventana extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jLabel1.setFont(new java.awt.Font("Serif", 1, 14)); // NOI18N
         jLabel1.setText("ANALITICA DE DATOS UFPSO");
+        jLabel1.setBorder(javax.swing.BorderFactory.createLineBorder(null));
 
         create.setText("Crear Menú");
         create.addActionListener(new java.awt.event.ActionListener() {
@@ -98,7 +100,7 @@ public class Ventana extends javax.swing.JFrame {
                     .addComponent(search)
                     .addComponent(inputData)
                     .addComponent(information))
-                .addContainerGap(226, Short.MAX_VALUE))
+                .addContainerGap(221, Short.MAX_VALUE))
         );
 
         pack();
