@@ -12,13 +12,15 @@ public class PlatosClass {
     
     public int precio;
     public String nombre;
+    public int costo;
 
     public PlatosClass() {
     }
 
-    public PlatosClass(int precio, String nombre) {
+    public PlatosClass(int precio, String nombre, int costo) {
         this.precio = precio;
         this.nombre = nombre;
+        this.costo = costo;
     }
     
     
@@ -51,6 +53,15 @@ public class PlatosClass {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
+
+    public int getCosto() {
+        return costo;
+    }
+
+    public void setCosto(int costo) {
+        this.costo = costo;
+    }
+    
     
     
 }

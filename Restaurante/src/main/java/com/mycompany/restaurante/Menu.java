@@ -34,7 +34,8 @@ public class Menu {
         while(x<cantidad){
             String name = JOptionPane.showInputDialog("Ingrese el NOMBRE del plato "+(x+1));
             int price = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el PRECIO del plato: "+(x+1)));
-            platos2[x] = new PlatosClass(price,name);
+            int cost = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el COSTO de Producción del plato: "+(x+1)));
+            platos2[x] = new PlatosClass(price,name,cost);
             x++;
         }
         
@@ -71,7 +72,7 @@ public class Menu {
             for(int c = 1;c<(platos2.length+1);c++){
                 datos[f][c]=Integer.parseInt(JOptionPane.showInputDialog(null, "Ventas para el día "+dias[(f-1)]+" plato: "+platos2[(c-1)].getNombre()));
                 datos2[f][c]=Integer.toString(datos[f][c]);
-                ganancias += datos[f][c]*platos2[c-1].getPrecio();
+                ganancias += (datos[f][c]*((platos2[c-1].getPrecio()-platos2[c-1].getCosto())));
             }
         }
         datos2[0][0]="_______";
@@ -156,7 +157,9 @@ public class Menu {
         
         String message2 = "";
         message2 += "- Plato más vendido de la semana: "+platos2[posi_mas].getNombre()+" ("+plato_mas+")"+"\n";
+        message2 += "- Plato con MÁS ganancias de la semana: "+platos2[posi_mas].getNombre()+" ($"+((platos2[posi_mas].getPrecio()*cant_platos[posi_mas])-(platos2[posi_mas].getCosto()*cant_platos[posi_mas]))+")"+"\n";
         message2 += "- Plato menos vendido de la semana: "+platos2[posi_menos].getNombre()+" ("+plato_menos+")"+"\n";
+        message2 += "- Plato con MENOS ganancias de la semana: "+platos2[posi_menos].getNombre()+" ($"+((platos2[posi_menos].getPrecio()*cant_platos[posi_menos])-(platos2[posi_menos].getCosto()*cant_platos[posi_menos]))+")"+"\n";
         message2 += "- Ganancias Totales: $"+ganancias+"\n";
         JOptionPane.showMessageDialog(null,message2);
     }
