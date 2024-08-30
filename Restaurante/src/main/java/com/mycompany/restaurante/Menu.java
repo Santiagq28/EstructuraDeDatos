@@ -22,6 +22,8 @@ public class Menu {
     int cant_platos[];
     int cant_dias[];
     PlatosClass platos2[];
+    int ganancias = 0;
+    
     
     public void crearMenu(int cantidad){
         
@@ -30,8 +32,8 @@ public class Menu {
         platos = new String[cantidad];
         int x = 0;
         while(x<cantidad){
-            String name = JOptionPane.showInputDialog("Ingrese el nombre del plato "+(x+1));
-            int price = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el precio del plato: "+(x+1)));
+            String name = JOptionPane.showInputDialog("Ingrese el NOMBRE del plato "+(x+1));
+            int price = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el PRECIO del plato: "+(x+1)));
             platos2[x] = new PlatosClass(price,name);
             x++;
         }
@@ -43,8 +45,7 @@ public class Menu {
             i++;
         }
         
-         * 
- */
+         **/
         datos2 = new String[7][(platos2.length+1)];
         for(int c=1;c<(platos2.length+(1));c++){
                 datos2[0][c]=platos2[(c-1)].getNombre();
@@ -70,6 +71,7 @@ public class Menu {
             for(int c = 1;c<(platos2.length+1);c++){
                 datos[f][c]=Integer.parseInt(JOptionPane.showInputDialog(null, "Ventas para el día "+dias[(f-1)]+" plato: "+platos2[(c-1)].getNombre()));
                 datos2[f][c]=Integer.toString(datos[f][c]);
+                ganancias += datos[f][c]*platos2[c-1].getPrecio();
             }
         }
         datos2[0][0]="_______";
@@ -155,6 +157,7 @@ public class Menu {
         String message2 = "";
         message2 += "- Plato más vendido de la semana: "+platos2[posi_mas].getNombre()+" ("+plato_mas+")"+"\n";
         message2 += "- Plato menos vendido de la semana: "+platos2[posi_menos].getNombre()+" ("+plato_menos+")"+"\n";
+        message2 += "- Ganancias Totales: $"+ganancias+"\n";
         JOptionPane.showMessageDialog(null,message2);
     }
 }
