@@ -133,4 +133,26 @@ public class ListaSimple {
         }
         JOptionPane.showMessageDialog(null,"Nombre: " +temporal.getNombre() + " Edad:"+ temporal.getEdad() +" Promedio:" +temporal.getPromedio());
     }
+    
+    public void eliminar(int indice){
+        int posicion = 0;
+        boolean indiceEncontrado = false;
+        
+        Nodo anterior = inicio;
+        Nodo siguiente = null;
+        
+        if(indice == 0){
+            inicio = inicio.getEnlace();
+            return;
+        }
+        
+        while(anterior != null){
+            if(posicion+1==indice){
+                siguiente = anterior.getEnlace().getEnlace();
+                indiceEncontrado = true;
+                break;
+            }
+            
+        }
+    }
 }
