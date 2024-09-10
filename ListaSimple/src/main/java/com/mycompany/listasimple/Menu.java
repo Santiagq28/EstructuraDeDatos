@@ -171,7 +171,13 @@ public class Menu extends javax.swing.JFrame {
 
     private void crearInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crearInicioActionPerformed
         
-        objLista.insertarInicio(nombre.getText(), Integer.parseInt(edad.getText()), Float.parseFloat(promedio.getText()));
+        try{
+            objLista.insertarInicio(nombre.getText(), Integer.parseInt(edad.getText()), Float.parseFloat(promedio.getText()));
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null,"ERROR, dato ingresado incorrecto.");
+        }
+        
+        
         
     }//GEN-LAST:event_crearInicioActionPerformed
 
@@ -180,23 +186,53 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_nombreActionPerformed
 
     private void consultarListaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultarListaActionPerformed
-        objLista.consultar();
+        try{
+             objLista.consultar();
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null,"ERROR");
+        }
+        
+       
     }//GEN-LAST:event_consultarListaActionPerformed
 
     private void insertarFinalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_insertarFinalActionPerformed
-        objLista.insertarFinal(nombre.getText(), Integer.parseInt(edad.getText()), Float.parseFloat(promedio.getText()));
+        try{
+            objLista.insertarFinal(nombre.getText(), Integer.parseInt(edad.getText()), Float.parseFloat(promedio.getText()));
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null,"ERROR");
+        }
+        
+        
     }//GEN-LAST:event_insertarFinalActionPerformed
 
     private void obtenerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_obtenerActionPerformed
-        objLista.obtener(Integer.parseInt(JOptionPane.showInputDialog("Ingrese el numero que quiere obtener: ")));
+        try{
+            objLista.obtener(Integer.parseInt(JOptionPane.showInputDialog("Ingrese el numero que quiere obtener: ")));
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null,"ERROR, posición ingresada no existente");
+        }
+        
+        
     }//GEN-LAST:event_obtenerActionPerformed
 
     private void insertarNodoPorDatoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_insertarNodoPorDatoActionPerformed
-        objLista.insertarDespuesDeDato(nombre.getText(), Integer.parseInt(edad.getText()), Float.parseFloat(promedio.getText()), JOptionPane.showInputDialog("Ingrese el dato: "));
+        try{
+            objLista.insertarDespuesDeDato(nombre.getText(), Integer.parseInt(edad.getText()), Float.parseFloat(promedio.getText()), JOptionPane.showInputDialog("Ingrese el dato: "));
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null,"ERROR");
+        }
+        
     }//GEN-LAST:event_insertarNodoPorDatoActionPerformed
 
     private void insertarNodoPorPosicionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_insertarNodoPorPosicionActionPerformed
-        objLista.insertarEnPosicion(nombre.getText(), Integer.parseInt(edad.getText()), Float.parseFloat(promedio.getText()), Integer.parseInt(JOptionPane.showInputDialog("Ingrese la posicion: ")));
+        
+        try{
+            objLista.insertarEnPosicion(nombre.getText(), Integer.parseInt(edad.getText()), Float.parseFloat(promedio.getText()), Integer.parseInt(JOptionPane.showInputDialog("Ingrese la posicion: ")));
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null,"ERROR");
+        }
+        
+        
     }//GEN-LAST:event_insertarNodoPorPosicionActionPerformed
 
     /**
