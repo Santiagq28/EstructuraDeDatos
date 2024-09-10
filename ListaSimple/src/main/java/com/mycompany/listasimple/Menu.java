@@ -86,6 +86,11 @@ public class Menu extends javax.swing.JFrame {
         });
 
         insertarNodoPorPosicion.setText("Insertar Nodo por Posición");
+        insertarNodoPorPosicion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                insertarNodoPorPosicionActionPerformed(evt);
+            }
+        });
 
         insertarNodoPorDato.setText("Insertar Nodo por Dato");
         insertarNodoPorDato.addActionListener(new java.awt.event.ActionListener() {
@@ -189,6 +194,10 @@ public class Menu extends javax.swing.JFrame {
     private void insertarNodoPorDatoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_insertarNodoPorDatoActionPerformed
         objLista.insertarDespuesDeDato(nombre.getText(), Integer.parseInt(edad.getText()), Float.parseFloat(promedio.getText()), JOptionPane.showInputDialog("Ingrese el dato: "));
     }//GEN-LAST:event_insertarNodoPorDatoActionPerformed
+
+    private void insertarNodoPorPosicionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_insertarNodoPorPosicionActionPerformed
+        objLista.insertarEnPosicion(nombre.getText(), Integer.parseInt(edad.getText()), Float.parseFloat(promedio.getText()), Integer.parseInt(JOptionPane.showInputDialog("Ingrese la posicion: ")));
+    }//GEN-LAST:event_insertarNodoPorPosicionActionPerformed
 
     /**
      * @param args the command line arguments

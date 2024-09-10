@@ -95,14 +95,19 @@ public class ListaSimple {
         nuevo.setNombre(nombre);
         nuevo.setEdad(edad);
         nuevo.setPromedio(promedio);
+        
+        
 
         if (inicio == null) {
             JOptionPane.showMessageDialog(null, "La lista está vacía.");
             return;
         }
-
+        
         Nodo temporal = inicio;
-        while (temporal != null && !temporal.getNombre().equals(datoBuscado)) {
+        while (temporal != null && 
+              !(temporal.getNombre().equals(datoBuscado) || 
+                Integer.toString(temporal.getEdad()).equals(datoBuscado) || 
+                Float.toString(temporal.getPromedio()).equals(datoBuscado))) {
             temporal = temporal.getEnlace();
         }
 
@@ -112,6 +117,7 @@ public class ListaSimple {
         } else {
             JOptionPane.showMessageDialog(null, "El dato buscado no se encuentra en la lista.");
         }
+
     }
     
     
