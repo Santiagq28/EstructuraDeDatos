@@ -1,22 +1,13 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- */
 
 package com.mycompany.listasimple;
 
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author SCIS2-27
- */
 public class ListaSimple {
     
     Nodo inicio;
-    int size;
     ListaSimple(){
         inicio=null;
-        size = 0;
     }
 
     public static void main(String[] args) {
@@ -62,17 +53,17 @@ public class ListaSimple {
         }   
     }
     
-    //Agregar un nodo por posición adelante de uno dado
+    
     public void insertarEnPosicion(String nombre, int edad, float promedio, int posicion) {
-    Nodo nuevo = new Nodo();
-    nuevo.setNombre(nombre);
-    nuevo.setEdad(edad);
-    nuevo.setPromedio(promedio);
+        Nodo nuevo = new Nodo();
+        nuevo.setNombre(nombre);
+        nuevo.setEdad(edad);
+        nuevo.setPromedio(promedio);
 
-    if (posicion == 0) {
-        nuevo.setEnlace(inicio);
-        inicio = nuevo;
-    } else {
+        if (posicion == 0) {
+            nuevo.setEnlace(inicio);
+            inicio = nuevo;
+        } else {
             Nodo temporal = inicio;
             int contador = 0;
             while (temporal != null && contador < posicion - 1) {
@@ -88,7 +79,6 @@ public class ListaSimple {
         }
     }
     
-    //Agregar un nodo por dato delante de uno dado
     
     public void insertarDespuesDeDato(String nombre, int edad, float promedio, String datoBuscado) {
         Nodo nuevo = new Nodo();
@@ -127,10 +117,10 @@ public class ListaSimple {
            JOptionPane.showMessageDialog(null, "La lista está vacía");
         }
         else{
-        while (temporal != null) { 
-            JOptionPane.showMessageDialog(null, "Nombre: " + temporal.getNombre() + " Edad: " + temporal.getEdad() + " Promedio: " + temporal.getPromedio());
-            temporal = temporal.getEnlace(); // Avanzamos al siguiente nodo
-        }
+            while (temporal != null) { 
+                JOptionPane.showMessageDialog(null, "Nombre: " + temporal.getNombre() + " Edad: " + temporal.getEdad() + " Promedio: " + temporal.getPromedio());
+                temporal = temporal.getEnlace();
+            }
         }
         
     }

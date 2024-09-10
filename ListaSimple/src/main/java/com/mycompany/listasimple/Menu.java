@@ -172,7 +172,12 @@ public class Menu extends javax.swing.JFrame {
     private void crearInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crearInicioActionPerformed
         
         try{
-            objLista.insertarInicio(nombre.getText(), Integer.parseInt(edad.getText()), Float.parseFloat(promedio.getText()));
+            if(Float.parseFloat(promedio.getText()) >= 0 && Float.parseFloat(promedio.getText()) <= 5 && Integer.parseInt(edad.getText()) > 0 ){
+                objLista.insertarInicio(nombre.getText(), Integer.parseInt(edad.getText()), Float.parseFloat(promedio.getText()));
+            }else{
+                JOptionPane.showMessageDialog(null,"ERROR, edad o promedio incorrecto (EDAD Debe ser mayor a 0, y PROMEDIO entre 0 y 5)");
+            }
+            
         }catch(Exception e){
             JOptionPane.showMessageDialog(null,"ERROR, dato ingresado incorrecto.");
         }
@@ -197,7 +202,12 @@ public class Menu extends javax.swing.JFrame {
 
     private void insertarFinalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_insertarFinalActionPerformed
         try{
-            objLista.insertarFinal(nombre.getText(), Integer.parseInt(edad.getText()), Float.parseFloat(promedio.getText()));
+            if(Float.parseFloat(promedio.getText()) >= 0 && Float.parseFloat(promedio.getText()) <= 5 && Integer.parseInt(edad.getText()) > 0 ){
+                objLista.insertarFinal(nombre.getText(), Integer.parseInt(edad.getText()), Float.parseFloat(promedio.getText()));
+            }else{
+                JOptionPane.showMessageDialog(null,"ERROR, edad o promedio incorrecto (EDAD Debe ser mayor a 0, y PROMEDIO entre 0 y 5)");
+            }
+            
         }catch(Exception e){
             JOptionPane.showMessageDialog(null,"ERROR");
         }
@@ -217,7 +227,12 @@ public class Menu extends javax.swing.JFrame {
 
     private void insertarNodoPorDatoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_insertarNodoPorDatoActionPerformed
         try{
-            objLista.insertarDespuesDeDato(nombre.getText(), Integer.parseInt(edad.getText()), Float.parseFloat(promedio.getText()), JOptionPane.showInputDialog("Ingrese el dato: "));
+            if(Float.parseFloat(promedio.getText()) >= 0 && Float.parseFloat(promedio.getText()) <= 5 && Integer.parseInt(edad.getText()) > 0 ){
+                objLista.insertarDespuesDeDato(nombre.getText(), Integer.parseInt(edad.getText()), Float.parseFloat(promedio.getText()), JOptionPane.showInputDialog("Ingrese el dato: "));
+            }else{
+                JOptionPane.showMessageDialog(null,"ERROR, edad o promedio incorrecto (EDAD Debe ser mayor a 0, y PROMEDIO entre 0 y 5)");
+            }
+            
         }catch(Exception e){
             JOptionPane.showMessageDialog(null,"ERROR");
         }
@@ -227,8 +242,12 @@ public class Menu extends javax.swing.JFrame {
     private void insertarNodoPorPosicionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_insertarNodoPorPosicionActionPerformed
         
         try{
-            objLista.insertarEnPosicion(nombre.getText(), Integer.parseInt(edad.getText()), Float.parseFloat(promedio.getText()), Integer.parseInt(JOptionPane.showInputDialog("Ingrese la posicion: ")));
-        }catch(Exception e){
+            if(Float.parseFloat(promedio.getText()) >= 0 && Float.parseFloat(promedio.getText()) <= 5 && Integer.parseInt(edad.getText()) > 0 ){
+                objLista.insertarEnPosicion(nombre.getText(), Integer.parseInt(edad.getText()), Float.parseFloat(promedio.getText()), Integer.parseInt(JOptionPane.showInputDialog("Ingrese la posicion: ")));
+            }else{
+                JOptionPane.showMessageDialog(null,"ERROR, edad o promedio incorrecto (EDAD Debe ser mayor a 0, y PROMEDIO entre 0 y 5)");
+            }
+            }catch(Exception e){
             JOptionPane.showMessageDialog(null,"ERROR");
         }
         
