@@ -86,8 +86,6 @@ public class ListaSimple {
         nuevo.setEdad(edad);
         nuevo.setPromedio(promedio);
         
-        
-
         if (inicio == null) {
             JOptionPane.showMessageDialog(null, "La lista está vacía.");
             return;
@@ -124,6 +122,8 @@ public class ListaSimple {
         }
         
     }
+    
+    
     public void obtener(int index){
         int contador = 0;
         Nodo temporal = inicio;

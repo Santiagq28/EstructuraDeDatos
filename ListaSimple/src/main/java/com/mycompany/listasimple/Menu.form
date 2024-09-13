@@ -42,7 +42,6 @@
                               <Component id="edad" alignment="1" min="-2" pref="122" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="insertarNodoPorPosicion" alignment="1" min="-2" max="-2" attributes="0"/>
                           <Component id="insertarNodoPorDato" alignment="1" min="-2" max="-2" attributes="0"/>

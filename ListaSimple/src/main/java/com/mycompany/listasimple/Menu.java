@@ -298,12 +298,21 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_insertarNodoPorPosicionActionPerformed
 
     private void eliminarNodoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarNodoActionPerformed
+        try{
+            objLista.eliminar(Integer.parseInt(JOptionPane.showInputDialog("Ingrese la posición que quiere eliminar: ")));
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, "ERROR");
+        }
         
-        objLista.eliminar(Integer.parseInt(JOptionPane.showInputDialog("Ingrese la posición que quiere eliminar: ")));
     }//GEN-LAST:event_eliminarNodoActionPerformed
 
     private void eliminarPorDatoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarPorDatoActionPerformed
-        objLista.eliminarPorDato(JOptionPane.showInputDialog("Ingrese el dato a eliminar: "));
+        try{
+            objLista.eliminarPorDato(JOptionPane.showInputDialog("Ingrese el dato a eliminar: "));
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, "ERROR");
+        }
+        
     
     }//GEN-LAST:event_eliminarPorDatoActionPerformed
 
