@@ -40,6 +40,8 @@ public class Menu extends javax.swing.JFrame {
         insertarNodoPorPosicion = new javax.swing.JButton();
         insertarNodoPorDato = new javax.swing.JButton();
         eliminarNodo = new javax.swing.JButton();
+        eliminarPorDato = new javax.swing.JButton();
+        ordenarAlfabeticamente = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -107,27 +109,27 @@ public class Menu extends javax.swing.JFrame {
             }
         });
 
+        eliminarPorDato.setText("Eliminar por Dato");
+        eliminarPorDato.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                eliminarPorDatoActionPerformed(evt);
+            }
+        });
+
+        ordenarAlfabeticamente.setText("Ordenar");
+        ordenarAlfabeticamente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ordenarAlfabeticamenteActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(16, 16, 16)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addComponent(crearInicio)
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(insertarFinal)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(obtener)
-                                    .addComponent(consultarLista, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(24, 24, 24))))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel4)
@@ -140,17 +142,34 @@ public class Menu extends javax.swing.JFrame {
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(nombre, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(edad, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(insertarNodoPorPosicion, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(insertarNodoPorDato, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(52, 52, 52)
+                                .addComponent(obtener)
+                                .addGap(2, 2, 2)))
+                        .addContainerGap())
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(crearInicio)
+                            .addComponent(eliminarNodo))
+                        .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(insertarNodoPorPosicion, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(insertarNodoPorDato, javax.swing.GroupLayout.Alignment.TRAILING))
-                                .addGap(22, 22, 22))
+                                .addComponent(eliminarPorDato)
+                                .addGap(18, 18, 18)
+                                .addComponent(ordenarAlfabeticamente)
+                                .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(46, 46, 46)
-                                .addComponent(eliminarNodo)
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
+                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(insertarFinal)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+                                .addComponent(consultarLista, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(24, 24, 24))))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -162,23 +181,31 @@ public class Menu extends javax.swing.JFrame {
                     .addComponent(crearInicio)
                     .addComponent(consultarLista)
                     .addComponent(insertarFinal))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
-                .addComponent(obtener)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2)
-                    .addComponent(insertarNodoPorPosicion))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(edad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3)
-                    .addComponent(insertarNodoPorDato))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(promedio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4)
-                    .addComponent(eliminarNodo))
+                    .addComponent(eliminarNodo)
+                    .addComponent(eliminarPorDato)
+                    .addComponent(ordenarAlfabeticamente))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel2))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(edad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel3))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(promedio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel4)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(obtener)
+                        .addGap(18, 18, 18)
+                        .addComponent(insertarNodoPorPosicion)
+                        .addGap(18, 18, 18)
+                        .addComponent(insertarNodoPorDato)))
                 .addGap(22, 22, 22))
         );
 
@@ -272,8 +299,17 @@ public class Menu extends javax.swing.JFrame {
 
     private void eliminarNodoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarNodoActionPerformed
         
-        objLista.eliminar(Integer.parseInt(JOptionPane.showInputDialog("Ingrese el numero que quiere obtener: ")));
+        objLista.eliminar(Integer.parseInt(JOptionPane.showInputDialog("Ingrese la posición que quiere eliminar: ")));
     }//GEN-LAST:event_eliminarNodoActionPerformed
+
+    private void eliminarPorDatoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarPorDatoActionPerformed
+        objLista.eliminarPorDato(JOptionPane.showInputDialog("Ingrese el dato a eliminar: "));
+    
+    }//GEN-LAST:event_eliminarPorDatoActionPerformed
+
+    private void ordenarAlfabeticamenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ordenarAlfabeticamenteActionPerformed
+        objLista.ordenarPorNombre();
+    }//GEN-LAST:event_ordenarAlfabeticamenteActionPerformed
 
     /**
      * @param args the command line arguments
@@ -315,6 +351,7 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JButton crearInicio;
     private javax.swing.JTextField edad;
     private javax.swing.JButton eliminarNodo;
+    private javax.swing.JButton eliminarPorDato;
     private javax.swing.JButton insertarFinal;
     private javax.swing.JButton insertarNodoPorDato;
     private javax.swing.JButton insertarNodoPorPosicion;
@@ -324,6 +361,7 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JTextField nombre;
     private javax.swing.JButton obtener;
+    private javax.swing.JButton ordenarAlfabeticamente;
     private javax.swing.JTextField promedio;
     // End of variables declaration//GEN-END:variables
 }
